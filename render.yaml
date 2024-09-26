@@ -2,7 +2,6 @@ databases:
   - name: howarts_rails_db
     databaseName: howarts_rails_development
     user: chima
-    password: Aldus1024@
     plan: free
 
 services:
