@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "render/index"
   get "pages/index"
   resources :characters
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
