@@ -1,24 +1,23 @@
 databases:
-  - name: postgres
-    ipAllowList: []
+  - name: mysite
+    databaseName: mysite
+    user: mysite
+    plan: free
 
 services:
   - type: web
-    name: rails
-    env: ruby
+    name: mysite
+    runtime: ruby
+    plan: free
     buildCommand: "./bin/render-build.sh"
-    startCommand: bundle exec rails s
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
     envVars:
-      - key: RAILS_MASTER_KEY
-        sync: false
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: mysite
           property: connectionString
-    ipAllowList: []  # Permitir todas las IPs
-
-  - type: redis
-    name: redis
-    plan: free
-    maxmemoryPolicy: noeviction
-    ipAllowList: []  # Permitir todas las IPs (si es requerido para Redis)
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
