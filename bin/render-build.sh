@@ -3,7 +3,7 @@
 set -o errexit
 
 # Instala las dependencias necesarias del proyecto
-bundle install --without development test
+bundle install #--without development test
 
 # Precompila los assets (CSS, JS, etc.)
 bundle exec rails assets:precompile
