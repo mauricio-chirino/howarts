@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
 
   # GET /characters or /characters.json
   def index
-    @characters = Character.all
+    @character = Character.all
   end
 
   # GET /characters/1 or /characters/1.json

@@ -1,2 +1,56 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+  <nav class="navbar bg-body-tertiary">
+    <%
+=begin%>
+ <form class="container-fluid justify-content-center">
+      <%= link_to 'Peliculas', films_path, class: "btn btn-outline-success me-2", role: "button" %>
+
+      <%= link_to 'Series', series_index_path, class: "btn btn-outline-danger me-2", role: "button" %>
+
+      <%= link_to 'Documentales', documentary_films_path, class: "btn btn-outline-primary me-2", role: "button" %>
+
+    </form> 
+<%
+=end%>
+  </nav>
+  <!-- lista en la portada las peliculas destacadas -->
+<div id="characters">
+  <h1>Lista de Personajes</h1>
+  
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    <% @characters.each do |character| %>
+      <div class="col mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= character.name %></h5>
+            <p class="card-text">
+              <strong>Ubicación:</strong> <%= character.location %><br>
+              <strong>Casa:</strong> <%= character.house %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <%
+=begin%>
+ <!-- lista en la portada los documentales -->
+  <h1 class="mt-5">Documentales Destacados</h1>
+  <div class="row row-cols-1 row-cols-sm-4 row-cols-md-4 row-cols-lg-4 ">
+    <% @documentary_films.each do |film| %>
+      <%= render film %>
+    <% end %>
+  </div>
+
+
+  <!-- Lista en la porta las series -->
+  <h1 class="mt-5">Series Destacadas</h1>
+  <div class="row row-cols-1 row-cols-sm-4 row-cols-md-4 row-cols-lg-4 ">
+    <% @series.each do |film| %>
+      <%= render film %>
+    <% end %>
+  </div> 
+<%
+=end%>
+</div>
