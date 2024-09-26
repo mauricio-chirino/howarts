@@ -15,8 +15,10 @@ services:
         fromDatabase:
           name: postgres
           property: connectionString
+    ipAllowList: []  # Permitir todas las IPs
 
   - type: redis
     name: redis
     plan: free
     maxmemoryPolicy: noeviction
+    ipAllowList: []  # Permitir todas las IPs (si es requerido para Redis)
