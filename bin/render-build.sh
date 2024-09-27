@@ -13,3 +13,4 @@ bundle exec rails assets:clean
 
 # Realiza las migraciones de la base de datos
 bundle exec rails db:migrate
+bundle exec rails db:seed
